@@ -1,0 +1,6 @@
+ap-northeast-1,Tokyo_key,10.0.0.0/24,10.0.8.0/24,10.0.0.0/20,Tokyo-vpc
+ap-southeast-1,Singapore_key,10.0.16.0/24,10.0.24.0/24,10.0.16.0/20,Singapore-vpc
+ap-northeast-2,Seoul_key,10.0.32.0/24,10.0.40.0/24,10.0.32.0/20,Seoul-vpc
+ap-southeast-3,Jakarta_key,10.0.48.0/24,10.0.56.0/24,10.0.48.0/20,Jakarta-vpc
+ap-east-1,Hongkong_key,10.0.64.0/24,10.0.72.0/24,10.0.64.0/20,Hongkong-vpc
+ap-southeast-5,Malaysia_key,10.0.80.0/24,10.0.88.0/24,10.0.80.0/20,Malaysia-vpc
