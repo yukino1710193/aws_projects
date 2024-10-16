@@ -9,6 +9,7 @@ do
     read REGION_NAME VPC_NAME SECURITY_GROUP_NAME IP_RANGE KEY_NAME SUBNET_PUB SUBNET_PRI REGION_ID GATEWAY_NAME EIP_NAT_NAME NATGW_NAME ROUTE_TABLE_PUBLIC_NAME ROUTE_TABLE_PRIVATE_NAME <<<${line}
     ## Create VPC get VPC_ID -> and tag VPC_NAME
     VPC_ID=$(aws ec2 create-vpc --region $REGION_ID --cidr-block $IP_RANGE --query "Vpc.VpcId" --output text) && aws ec2 create-tags --resources $VPC_ID --tags Key=Name,Value=$VPC_NAME --region $REGION_ID
+    
     ## Create subnet
     #PUBLIC
     SUBNET_PUB_ID=$(aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block $SUBNET_PUB --region $REGION_ID --query "Subnet.SubnetId" --output text) && aws ec2 create-tags --resources $SUBNET_PUB_ID --tags Key=Name,Value=SUBNET_PUB --region $REGION_ID
@@ -23,7 +24,6 @@ do
     
     ## Create an NAT Gateway
     EIP_NAT_ID=$(aws ec2 allocate-address --domain vpc --region $REGION_ID --query "AllocationId" --output text) && aws ec2 create-tags --resources $EIP_NAT_ID --tags Key=Name,Value=$EIP_NAT_NAME --region $REGION_ID
-
 
     NATGW_ID=$(aws ec2 create-nat-gateway --subnet-id $SUBNET_ID --allocation-id $EIP_NAT_ID --region $REGION_ID --query "NatGateway.NatGatewayId" --output text) && aws ec2 create-tags --resources $NATGW_ID --tags Key=Name,Value=$NATGW_NAME --region $REGION_ID
 
