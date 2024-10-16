@@ -1,0 +1,6 @@
+Tokyo,Tokyo-vpc,testbed_group,10.0.0.0/20,Tokyo_key,10.0.0.0/24,10.0.8.0/24,ap-northeast-1,IGW_Tokyo,Elastic_IP_Tokyo,NAT_GW_Tokyo,ROUTE_TABLE_PUBLIC_Tokyo,ROUTE_TABLE_PRIVATE_Tokyo
+Singapore,Singapore-vpc,testbed_group,10.0.16.0/20,Singapore_key,10.0.16.0/24,10.0.24.0/24,ap-southeast-1,IGW_Singapore,Elastic_IP_Singapore,NAT_GW_Singapore,ROUTE_TABLE_PUBLIC_Singapore,ROUTE_TABLE_PRIVATE_Singapore
+Seoul,Seoul-vpc,testbed_group,10.0.32.0/20,Seoul_key,10.0.32.0/24,10.0.40.0/24,ap-northeast-2,IGW_Seoul,Elastic_IP_Seoul,NAT_GW_Seoul,ROUTE_TABLE_PUBLIC_Seoul,ROUTE_TABLE_PRIVATE_Seoul
+Jakarta,Jakarta-vpc,testbed_group,10.0.48.0/20,Jakarta_key,10.0.48.0/24,10.0.56.0/24,ap-southeast-3,IGW_Jakarta,Elastic_IP_Jakarta,NAT_GW_Jakarta,ROUTE_TABLE_PUBLIC_Jakarta,ROUTE_TABLE_PRIVATE_Jakarta
+Hongkong,Hongkong-vpc,testbed_group,10.0.64.0/20,Hongkong_key,10.0.64.0/24,10.0.72.0/24,ap-east-1,IGW_Hongkong,Elastic_IP_Hongkong,NAT_GW_Hongkong,ROUTE_TABLE_PUBLIC_Hongkong,ROUTE_TABLE_PRIVATE_Hongkong
+Malaysia,Malaysia-vpc,testbed_group,10.0.80.0/20,Malaysia_key,10.0.80.0/24,10.0.88.0/24,ap-southeast-5,IGW_Malaysia,Elastic_IP_Malaysia,NAT_GW_Malaysia,ROUTE_TABLE_PUBLIC_Malaysia,ROUTE_TABLE_PRIVATE_Malaysia

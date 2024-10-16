@@ -6,7 +6,7 @@ for line in $(cat ${FILE})
 do
     echo ${line}
     IFS=,
-    read REGION_ID KEY_NAME SUBNET_PUB SUBNET_PRI IP_RANGE VPC_NAME <<<${line}
+    read REGION_NAME VPC_NAME SECURITY_GROUP_NAME IP_RANGE KEY_NAME SUBNET_PUB SUBNET_PRI REGION_ID GATEWAY_NAME EIP_NAT_NAME NATGW_NAME ROUTE_TABLE_PUBLIC_NAME ROUTE_TABLE_PRIVATE_NAME <<<${line}
     ## Create VPC get VPC_ID -> and tag VPC_NAME
     VPC_ID=$(aws ec2 create-vpc --region $REGION_ID --cidr-block $IP_RANGE --query "Vpc.VpcId" --output text) && aws ec2 create-tags --resources $VPC_ID --tags Key=Name,Value=$VPC_NAME --region $REGION_ID
     ## Create subnet
