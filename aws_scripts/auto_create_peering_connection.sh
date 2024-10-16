@@ -1,13 +1,15 @@
 #!/bin/bash
-FILE=${1}
-IFS=$'\n'
+    REGION_ID1=$1
+    VPC_NAME1=$2
+    ROUTE_TABLE_PUBLIC_NAME1=$3
+    OUTE_TABLE_PRIVATE_NAME1=$4
+    IP_RANGE1=$5
 
-for line in $(cat ${FILE})
-do
-    echo ${line}
-    IFS=,
-    read REGION_NAME VPC_NAME SECURITY_GROUP_NAME IP_RANGE KEY_NAME SUBNET_PUB SUBNET_PRI REGION_ID GATEWAY_NAME EIP_NAT_NAME NATGW_NAME ROUTE_TABLE_PUBLIC_NAME ROUTE_TABLE_PRIVATE_NAME <<<${line}
-
+    REGION_ID2=$6
+    VPC_NAME2=$7
+    ROUTE_TABLE_PUBLIC_NAME2=$8
+    ROUTE_TABLE_PRIVATE_NAME2=$9
+    IP_RANGE2=$10
     # SET PARAM
     VPC_ID1=$(aws ec2 describe-vpcs --region $REGION_ID1 --filters "Name=tag:Name,Values=$VPC_NAME1" --query "Vpcs[0].VpcId" --output text)
     VPC_ID2=$(aws ec2 describe-vpcs --region $REGION_ID2 --filters "Name=tag:Name,Values=$VPC_NAME2" --query "Vpcs[0].VpcId" --output text)
@@ -29,10 +31,3 @@ do
     aws ec2 create-route --route-table-id $ROUTE_TABLE_PUBLIC_ID2 --destination-cidr-block $IP_RANGE1 --vpc-peering-connection-id $PCX_ID --region $REGION_ID2
 # pri
     aws ec2 create-route --route-table-id $ROUTE_TABLE_PRIVATE_ID2 --destination-cidr-block $IP_RANGE1 --vpc-peering-connection-id $PCX_ID --region $REGION_ID2
-done
-
-PCX_ID=$(aws ec2 create-vpc-peering-connection --vpc-id vpc-12345678 --peer-vpc-id vpc-87654321 --region us-east-1 --peer-region us-west-2 --query "VpcPeeringConnection.VpcPeeringConnectionId" --output text)
-aws ec2 create-vpc-peering-connection --vpc-id vpc-xxxxxxxx --peer-vpc-id vpc-yyyyyyyy --region <region1> --peer-region <region2>
-aws ec2 accept-vpc-peering-connection --vpc-peering-connection-id pcx-xxxxxxxx --region <region2>
-aws ec2 create-route --route-table-id rtb-xxxxxxxx --destination-cidr-block <CIDR của VPC peer> --vpc-peering-connection-id pcx-xxxxxxxx --region <region1>
-aws ec2 create-route --route-table-id rtb-yyyyyyyy --destination-cidr-block <CIDR của VPC đầu tiên> --vpc-peering-connection-id pcx-xxxxxxxx --region <region2>
