@@ -56,5 +56,6 @@ vpc_list = read_VPC_info_from_csv(file_path)
 for i in range(len(vpc_list)-1):
     vpc1=vpc_list[i]
     vpc2=vpc_list[i+1]
-    command = f"./A.sh {vpc1['region_id']} {vpc1['vpc_name']} {vpc1['route_table_public_name']} {vpc1['route_table_private_name']} {vpc1['ip_range']} {vpc2['region_id']} {vpc2['vpc_name']} {vpc2['route_table_public_name']} {vpc2['route_table_private_name']} {vpc2['ip_range']}"
+#    command = f"echo './A.sh {vpc1.region_id} {vpc1.vpc_name} {vpc1.route_table_public_name} {vpc1.route_table_private_name} {vpc1.ip_range} {vpc2.region_id} {vpc2.vpc_name} {vpc2.route_table_public_name} {vpc2.route_table_private_name} {vpc2.ip_range}'"
+    command = f"./A.sh {vpc1.region_id} {vpc1.vpc_name} {vpc1.route_table_public_name} {vpc1.route_table_private_name} {vpc1.ip_range} {vpc2.region_id} {vpc2.vpc_name} {vpc2.route_table_public_name} {vpc2.route_table_private_name} {vpc2.ip_range}"
     os.system(command)
