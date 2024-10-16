@@ -55,14 +55,14 @@ do
 ## Run commands in the following order replacing all values as necessary
 
 # aws ec2 terminate-instances --instance-ids i-0c7371bbf7888bcdb
-aws ec2 delete-security-group --group-id $GROUP_ID --region $REGION_ID
-aws ec2 delete-subnet --subnet-id $SUBNET_PRI_ID --region $REGION_ID
-aws ec2 delete-subnet --subnet-id $SUBNET_PUB_ID --region $REGION_ID
-aws ec2 delete-route-table --route-table-id $ROUTE_TABLE_PRIVATE_ID --region $REGION_ID
-aws ec2 delete-route-table --route-table-id $ROUTE_TABLE_PUBLIC_ID --region $REGION_ID
-aws ec2 detach-internet-gateway --internet-gateway-id $IGW_ID --vpc-id $VPC_ID --region $REGION_ID
-aws ec2 delete-internet-gateway --internet-gateway-id $IGW_ID --region $REGION_ID
-aws ec2 delete-nat-gateway --nat-gateway-id $NATGW_ID --region $REGION_ID
-aws ec2 release-address --allocation-id $EIP_NAT_ID --region $REGION_ID
-aws ec2 delete-vpc --vpc-id $VPC_ID --region $REGION_ID
+# aws ec2 delete-security-group --group-id $GROUP_ID --region $REGION_ID
+# aws ec2 delete-subnet --subnet-id $SUBNET_PRI_ID --region $REGION_ID
+# aws ec2 delete-subnet --subnet-id $SUBNET_PUB_ID --region $REGION_ID
+# aws ec2 delete-route-table --route-table-id $ROUTE_TABLE_PRIVATE_ID --region $REGION_ID
+# aws ec2 delete-route-table --route-table-id $ROUTE_TABLE_PUBLIC_ID --region $REGION_ID
+# aws ec2 detach-internet-gateway --internet-gateway-id $IGW_ID --vpc-id $VPC_ID --region $REGION_ID
+# aws ec2 delete-internet-gateway --internet-gateway-id $IGW_ID --region $REGION_ID
+# aws ec2 delete-nat-gateway --nat-gateway-id $NATGW_ID --region $REGION_ID
+# aws ec2 release-address --allocation-id $EIP_NAT_ID --region $REGION_ID
+# aws ec2 delete-vpc --vpc-id $VPC_ID --region $REGION_ID
 done
