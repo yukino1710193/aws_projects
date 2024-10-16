@@ -1,0 +1,1 @@
+Hongkong,Hongkong-vpc,testbed_group,10.0.64.0/20,Hongkong_key,10.0.64.0/24,10.0.72.0/24,ap-east-1,IGW_Hongkong,Elastic_IP_Hongkong,NAT_GW_Hongkong,ROUTE_TABLE_PUBLIC_Hongkong,ROUTE_TABLE_PRIVATE_Hongkong
