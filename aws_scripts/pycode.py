@@ -44,18 +44,21 @@ def read_VPC_info_from_csv(file_path):
 
 # Kiểm tra xem có đủ đối số được cung cấp không
 if len(sys.argv) < 2:
-    print("Vui lòng cung cấp đường dẫn đến file CSV.")
+    print("Vui lòng cung cấp đường dẫn đến file CSV , Script")
     sys.exit(1)  # Thoát chương trình với mã lỗi
+elif len(sys.argv) == 2:
+    print("Vui lòng cung cấp đường dẫn đến file CSV , Script")
+    sys.exit(2)
 
 # Lấy đường dẫn file từ đối số đầu tiên
 file_path = sys.argv[1]
 
 vpc_list = read_VPC_info_from_csv(file_path)
-
+exec_file = sys.argv[2]
 # In ra các cấu hình đã đọc
 for i in range(len(vpc_list)-1):
     vpc1=vpc_list[i]
     vpc2=vpc_list[i+1]
-#    command = f"echo './A.sh {vpc1.region_id} {vpc1.vpc_name} {vpc1.route_table_public_name} {vpc1.route_table_private_name} {vpc1.ip_range} {vpc2.region_id} {vpc2.vpc_name} {vpc2.route_table_public_name} {vpc2.route_table_private_name} {vpc2.ip_range}'"
-    command = f"./A.sh {vpc1.region_id} {vpc1.vpc_name} {vpc1.route_table_public_name} {vpc1.route_table_private_name} {vpc1.ip_range} {vpc2.region_id} {vpc2.vpc_name} {vpc2.route_table_public_name} {vpc2.route_table_private_name} {vpc2.ip_range}"
+    command = f"echo './{exec_file} {vpc1.region_id} {vpc1.vpc_name} {vpc1.route_table_public_name} {vpc1.route_table_private_name} {vpc1.ip_range} {vpc2.region_id} {vpc2.vpc_name} {vpc2.route_table_public_name} {vpc2.route_table_private_name} {vpc2.ip_range}'"
+#    command = f"./{exec_file} {vpc1.region_id} {vpc1.vpc_name} {vpc1.route_table_public_name} {vpc1.route_table_private_name} {vpc1.ip_range} {vpc2.region_id} {vpc2.vpc_name} {vpc2.route_table_public_name} {vpc2.route_table_private_name} {vpc2.ip_range}"
     os.system(command)
