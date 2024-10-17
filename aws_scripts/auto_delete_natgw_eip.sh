@@ -17,7 +17,7 @@ ROUTE_TABLE_PRIVATE_NAME=${13}
 # Querry id
     EIP_NAT_ID=$(aws ec2 describe-addresses --filters "Name=tag:Name,Values=$EIP_NAT_NAME" --query "Addresses[0].AllocationId" --output text --region $REGION_ID)
     NATGW_ID=$(aws ec2 describe-nat-gateways --filter "Name=tag:Name,Values=NAT_GW_Hongkong" --region $REGION_ID --query 'NatGateways[*].NatGatewayId' --output text)
-    ROUTE_TABLE_PRIVATE_ID=$(aws ec2 describe-route-tables --filters "Name=tag:Name,Values=$ROUTE_TABLE_PRIVATE_NAME" --query "RouteTables[0].RouteTableId" --output text --region $REGION_ID)
+    ROUTE_TABLE_PRIVATE_ID=$(aws ec2 describe-route-tables --filters Name=vpc-id,Values=$VPC_ID "Name=tag:Name,Values=$ROUTE_TABLE_PRIVATE_NAME" --query "RouteTables[0].RouteTableId" --output text --region $REGION_ID)
 
     # echo $EIP_NAT_ID
     # echo
